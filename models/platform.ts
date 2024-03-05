@@ -1,15 +1,14 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from 'mongoose';
 
-export const platformSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  slug: {
-    type: String,
-    required: true,
-  },
-  platforms: {},
+export interface Platform extends Document {
+  name: string;
+  slug: string;
+  platforms?: Platform[];
+}
+
+export const platformSchema: Schema = new Schema({
+  name: { type: String, required: true },
+  slug: { type: String, required: true },
 });
 
-export default mongoose.model("Platform", platformSchema);
+export default mongoose.model<Platform>('Platform', platformSchema);

@@ -1,17 +1,13 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from 'mongoose';
 
-export const genreSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  slug: {
-    type: String,
-    required: true,
-  },
-  image_background: {
-    type: String,
-  },
+export interface Genre extends Document {
+  name: string;
+  slug?: string;
+}
+
+export const genreSchema: Schema = new Schema({
+  name: { type: String, required: true },
+  slug: { type: String },
 });
 
-export default mongoose.model("Genre", genreSchema);
+export default mongoose.model<Genre>('Genre', genreSchema);
