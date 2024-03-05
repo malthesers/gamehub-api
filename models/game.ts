@@ -1,13 +1,13 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import { Platform, platformSchema } from './platform';
-import { Genre, genreSchema } from './genre';
+import { IPlatform, platformSchema } from './platform';
+import { IGenre, genreSchema } from './genre';
 
-export interface Game extends Document {
+export interface IGame extends Document {
   name: string;
   background_image?: string;
-  parent_platforms?: { platform: Platform }[];
+  parent_platforms?: { platform: IPlatform }[];
   metacritic?: number;
-  genres?: Genre[];
+  genres?: IGenre[];
 }
 
 const gameSchema: Schema = new Schema({
@@ -18,4 +18,4 @@ const gameSchema: Schema = new Schema({
   genres: [genreSchema],
 });
 
-export default mongoose.model('Game', gameSchema);
+export default mongoose.model<IGame>('Game', gameSchema);

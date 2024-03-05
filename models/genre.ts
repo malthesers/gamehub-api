@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-export interface Genre extends Document {
+export interface IGenre extends Document {
   name: string;
   slug?: string;
 }
@@ -10,4 +10,4 @@ export const genreSchema: Schema = new Schema({
   slug: { type: String },
 });
 
-export default mongoose.model<Genre>('Genre', genreSchema);
+export default mongoose.model<IGenre>('Genre', genreSchema);

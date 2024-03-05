@@ -1,9 +1,9 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-export interface Platform extends Document {
+export interface IPlatform extends Document {
   name: string;
   slug: string;
-  platforms?: Platform[];
+  platforms?: IPlatform[];
 }
 
 export const platformSchema: Schema = new Schema({
@@ -11,4 +11,4 @@ export const platformSchema: Schema = new Schema({
   slug: { type: String, required: true },
 });
 
-export default mongoose.model<Platform>('Platform', platformSchema);
+export default mongoose.model<IPlatform>('Platform', platformSchema);
