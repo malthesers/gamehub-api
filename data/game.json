@@ -1,0 +1,13 @@
+{
+  "_id": "dsgs",
+  "name": "adsada",
+  "background_image": "http...",
+  "metacritic": 80,
+  "parent_platform": {},
+  "genres": [
+    {
+      "name": "Action",
+      "slug": "action"
+    }
+  ]
+}
