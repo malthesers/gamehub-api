@@ -38,3 +38,17 @@ router.get('/', async (req, res) => {
     res.status(500).send(err)
   }
 })
+
+router.get('/:id', async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id)
+
+    if (!game) {
+      return res.status(404).send()
+    }
+
+    res.send(game)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
