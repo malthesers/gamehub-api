@@ -1,14 +1,14 @@
 import express from 'express'
 import Genre, { IGenre } from '../models/genre'
 
-const router = express.Router()
+const genreRouter = express.Router()
 
 interface Response {
   count: number
   results: IGenre[]
 }
 
-router.get('/', async (req, res) => {
+genreRouter.get('/', async (req, res) => {
   try {
     const genres = await Genre.find({})
 
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+genreRouter.get('/:id', async (req, res) => {
   try {
     const genre = Genre.findById(req.params.id)
 
@@ -36,3 +36,5 @@ router.get('/:id', async (req, res) => {
     res.status(500).send(err)
   }
 })
+
+export default genreRouter

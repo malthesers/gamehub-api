@@ -1,14 +1,14 @@
 import express from 'express'
 import Platform, { IPlatform } from '../models/platform'
 
-const router = express.Router()
+const platformRouter = express.Router()
 
 interface Response {
   count: number
   results: IPlatform[]
 }
 
-router.get('/', async (req, res) => {
+platformRouter.get('/', async (req, res) => {
   try {
     const platforms = await Platform.find({})
 
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+platformRouter.get('/:id', async (req, res) => {
   try {
     const platform = Platform.findById(req.params.id)
 
@@ -36,3 +36,5 @@ router.get('/:id', async (req, res) => {
     res.status(500).send(err)
   }
 })
+
+export default platformRouter

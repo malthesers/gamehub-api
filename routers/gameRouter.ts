@@ -1,7 +1,7 @@
 import express from 'express'
 import Game, { IGame } from '../models/game'
 
-const router = express.Router()
+const gameRouter = express.Router()
 
 interface Response {
   count: number
@@ -13,7 +13,7 @@ interface Query {
   'parent_platforms.platform._id'?: string
 }
 
-router.get('/', async (req, res) => {
+gameRouter.get('/', async (req, res) => {
   try {
     let query: Query = {}
     const genreID = req.query['genres']
@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+gameRouter.get('/:id', async (req, res) => {
   try {
     const game = await Game.findById(req.params.id)
 
@@ -52,3 +52,5 @@ router.get('/:id', async (req, res) => {
     res.status(500).send(err)
   }
 })
+
+export default gameRouter
