@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm install && tsc",
     "start": "ts-node index.ts",
-    "dev": "nodemon --exec ts-node index.ts"
+    "dev": "nodemon --exec ts-node index.ts",
+    "seed": "ts-node ./data/seeder.ts"
   },
   "keywords": [],
   "author": "",

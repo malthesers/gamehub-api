@@ -3,6 +3,7 @@ import { IPlatform, platformSchema } from './platform'
 import { IGenre, genreSchema } from './genre'
 
 export interface IGame extends Document {
+  _id: string
   name: string
   background_image?: string
   platforms: IPlatform[]
