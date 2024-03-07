@@ -4,7 +4,7 @@ import genreRouter from '../routers/genreRouter'
 import gameRouter from '../routers/gameRouter'
 
 export default function setupRouters(app: express.Application) {
-  app.use('/platforms/lists/parents', platformRouter)
+  app.use('/platforms', platformRouter)
   app.use('/genres', genreRouter)
   app.use('/games', gameRouter)
 }
