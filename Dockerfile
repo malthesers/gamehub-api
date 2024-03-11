@@ -1,4 +1,4 @@
-FROM node:18.0-alpine3.17
+FROM node:20-slim
 
 WORKDIR /app/
 
@@ -10,4 +10,4 @@ COPY . /.
 
 EXPOSE 3000
 
-CMD ["npm", "dev"]
+CMD ["npm", "start"]
