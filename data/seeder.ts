@@ -5,7 +5,7 @@ import Platform from '../models/platform'
 import data from './game'
 
 mongoose
-  .connect('mongodb://localhost:27017/')
+  .connect('mongodb://localhost:27017/gamehub')
   .then(async () => {
     console.log('Connected to the database')
 
